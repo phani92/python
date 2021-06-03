@@ -192,8 +192,20 @@
     ```
     f = open('xyz.txt','r')
     ```
-  - By default the mode is 'r'
+  - By default the mode is 'r' which is for reading.
+  - other modes are 'w' (writing), 'a' (appending) and '+' (updating).
+  - Additional modes are 'rb' for read in binary mode and 'rt' will open for read in text mode.
   - close
     ```
     f.close()
     ```
+  - read
+    - `f.read()` to read the file.
+    - `f.read(n)` to read the first n characters in a file.
+    - `f.readLine()` to read one line from the file.
+  - `with` is called as context mode. When a file is opened using `with` parameter then it is not required to close the file.
+    ```
+      with open('fileName','r') as f:
+        a = f.read()
+    ```
+  
