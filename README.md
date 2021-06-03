@@ -29,6 +29,7 @@
 - `Escape sequence characters` - For example `\n` for next line or `\t` for a tab space can be used inside a string of double quotes. - "I am \n doing great.". - It will print "doing great" in next line.
 - `oldWord` and `newWord`
 - Care needs to be taken that the variable is assigned again to a new variable or the applied method is lost. `x = x.replace('")`
+- `(f"string{varName}")` - this is a formatted string where varName is replaceable.
 
 ## Lists and Tuples
 
@@ -208,4 +209,36 @@
       with open('fileName','r') as f:
         a = f.read()
     ```
-  
+
+## Object Oriented Programming
+
+* `DRY` principle
+* class and objects similar to c++
+* syntax - `var = class()`.
+* objects of a given class can invoke the methods available to it without revealing the implementation details to the user. This is called as `Abstraction` and `encapsulation`.
+* class attributes can be directly changed by accessing the element.
+  ```
+    class employee:
+      company = "Avion"
+
+    employee phani
+    print(phani.company) // will print Avion
+    employee.company = "AvionReturns"
+    print(phani.company) // will print AvionReturns as the class attribute value was changed.
+  ```
+* `Instance attributes` are the elements of the class for a particular object.
+* Instance attribute take preference over class attribute. If any attribute that is not defined in the class is tried to be accessed then the compiler will throw an error.
+* `self` is similar to `this` of c++.
+* `static method decorator` - Sometimes we need a function that does not use the self parameter. In such a case we can define a static method like this:
+  ```
+  @staticmethod
+  def greet():
+    print("Hello")
+  ```
+* `constructor` - similar to c++, it is run first when the object is created.
+  ```
+  class employee:
+    def __init__(self):
+      print("Employee is created")
+  ```
+  * If there are positional arguments in the constructor then they have to be given during the initialization of an object.
