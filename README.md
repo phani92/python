@@ -11,6 +11,7 @@
 - Floating points
 - strings
 - Variable names are case sensitive
+- `Dunder` or `magic` methods in Python are the methods having two prefix and suffix underscores in the method name. Eg: `__Init__`
 
 ## Print statement
 
@@ -171,6 +172,7 @@
   - `break` - it breaks and ends the loop
 
 ## Functions
+
 - syntax
   ```
     def <funcName>:
@@ -186,6 +188,7 @@
   ```
 
 ## Files
+
 - Use files to store in nvm
 - There are two types of files: `textFiles` and `binaryFiles`
 - Operations
@@ -212,11 +215,18 @@
 
 ## Object Oriented Programming
 
-* `DRY` principle
-* class and objects similar to c++
-* syntax - `var = class()`.
-* objects of a given class can invoke the methods available to it without revealing the implementation details to the user. This is called as `Abstraction` and `encapsulation`.
-* class attributes can be directly changed by accessing the element.
+- `DRY` principle
+- class and objects similar to c++
+- in python we identify them as:
+  ```
+  Noun - class
+  Adjective - attributes
+  Verbs - methods
+  ```
+- syntax - `var = class()`.
+- objects of a given class can invoke the methods available to it without revealing the implementation details to the user. This is called as `Abstraction` and `encapsulation`.
+- class attributes can be directly changed by accessing the element.
+
   ```
     class employee:
       company = "Avion"
@@ -226,19 +236,126 @@
     employee.company = "AvionReturns"
     print(phani.company) // will print AvionReturns as the class attribute value was changed.
   ```
-* `Instance attributes` are the elements of the class for a particular object.
-* Instance attribute take preference over class attribute. If any attribute that is not defined in the class is tried to be accessed then the compiler will throw an error.
-* `self` is similar to `this` of c++.
-* `static method decorator` - Sometimes we need a function that does not use the self parameter. In such a case we can define a static method like this:
+
+- `Instance attributes` are the elements of the class for a particular object.
+- Instance attribute take preference over class attribute. If any attribute that is not defined in the class is tried to be accessed then the compiler will throw an error.
+- `self` is similar to `this` of c++.
+- `static method decorator` - Sometimes we need a function that does not use the self parameter. In such a case we can define a static method like this:
   ```
   @staticmethod
   def greet():
     print("Hello")
   ```
-* `constructor` - similar to c++, it is run first when the object is created.
+- `constructor` - similar to c++, it is run first when the object is created.
   ```
   class employee:
     def __init__(self):
       print("Employee is created")
   ```
-  * If there are positional arguments in the constructor then they have to be given during the initialization of an object.
+  - The parameter `self` can be given any identifier name. It does not have to be `self` only.
+  ```
+  def __init__(self):
+  // is equal to
+  def __init__(anyVal)
+  ```
+  - If there are positional arguments in the constructor then they have to be given during the initialization of an object.
+
+## Inheritance
+
+- A derived class can be created using a base class which will inherit all the properties of the base class.
+
+  - Syntax with example:
+
+  ```
+  class Base:
+    company = "Google"
+
+    def showDetails(self):
+      print(f"The employee works for {self.company}")
+
+  class Derived(Base):
+    product = "Youtube"
+  ```
+
+  - Important about `virtual functions` - the derived class can simply overwrite the base class's identical function by having a definition for it in the body of the derived class.
+
+- Types:
+
+  - Single inheritance - single parent and single child
+
+  ```
+  class Base:
+    //Body
+
+  class Derived(Base):
+    // Body
+  ```
+
+  - Multiple inheritance - Two parent classes and single child
+
+  ```
+  class Base1:
+    //Body
+
+  class Base2:
+    //Body
+
+  class Derived(Base1, Base2):
+    //
+  ```
+
+  - Multilevel inheritance - It is a cascading inheritance.
+
+  ```
+  class Base:
+    // Body
+
+  class Derived(Base):
+    // Body
+
+  class SubDerived(Derived):
+    // Body
+  ```
+
+  - Precedence of execution of functions depends on the availability.
+    - If a function is present in all the classes, i.e parent and child then the function in the child class will be executed.
+    - If a function is present in the base class and derived class then the sub-derived class takes the function from the derived class.
+    - If a function is present only in base class then there is no other option except using it directly.
+- `super` method allows the function to also use the function from the base class.
+    ```
+    class Base:
+      def exampleFunc(self):
+        // Body
+
+    class Derived(Base):
+      def exampleFunc(self):
+        super().exampleFunc()
+        // The above line will use the function from the base class
+    ```
+- `Class` method - It is related to the class and not instance. there are two ways of accessing a element of the class and updating it.
+  - method 1:
+  ```
+  def changeSalary(self, sal):
+    self.__class__.salary = sal
+  ```
+  - method 2 using decorator:
+  ```
+  @classmethod
+  def def changeSalary(cls, sal):
+    cls.salary = sal
+  ```
+- `Property` decorator, there can be instances when a property is dependent on other members of the class. If these properties or variables are hardcoded then it is not easy to maintain these variables as all of them have to be changed by using methods or writing functions to set/get them. To ease this situation there is a feasibility in python to use property decorator.
+  - syntax for getter:
+    ```
+    @property
+    def <variableName>(self):
+      return class.var1 + class.var2
+    ```
+  - syntax for setter:
+    ```
+    @property.setter
+    def <variableName>(self, val):
+      self.<var1> = val - var2
+    ```
+- `overloading of operators` - operators in python can be overloaded using dunder methods. It is about basically overloading or replacing the functionality of a default operator like `+` or `-` with custom defined functions as explained in the example `operatorOverloading.py`
+- In the python documentation it is given which operators can be overloaded like `__Add__` or `__Mul__` etc... For complete lists checkout the [link](https://www.python-course.eu/python3_magic_methods.php)
