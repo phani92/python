@@ -32,8 +32,14 @@ class Calculator:
         print("Square root of", self.a, "is", self.squareRoot())
         print("\n")
 
+    @staticmethod
+
+    def greet():
+        print("Hello")
+
 
 example1 = Calculator(10, 5)
+example1.greet()
 example1.getResults()
 example2 = Calculator(100, 5)
 example2.getResults()
