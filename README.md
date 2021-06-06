@@ -3,7 +3,8 @@
 - Collection of python implementations.
 - Personal notes.
 - If anything is useful please feel free to use them.
-- Everything in python is object
+- Everything in python is object.
+- `pip freeze > requirements.txt` creates a list of installed modules and copies the text into the text file.
 - Special shout out to [Harry](https://www.codewithharry.com/) for the amazing course and practice problems.
 
 ## Variables and data types
@@ -371,7 +372,9 @@
 ### Main
 
 - When files need to be imported and we want only a section of code from it to be executed then the program can be isolated using `__name__ == __main__`. It also acts as an entry point for the module similar to java or c++.
+
   - syntax and example:
+
     ```
     program_1:
       def egFunc:
@@ -447,3 +450,90 @@
       # Block of statements to finish
       # Important is it will be executed even if the program is exited in any of the above cases
     ```
+
+## Virtual Environment
+
+- It is an environment which is same as the system interpreter but is isolated from the other python environments on the system.
+- It creates an independent python environment which seems to be similar to the one installed in the local system.
+- When you want to use a python lib/module which has to be different to the one installed in the local system then a virtual environment can be created.
+- Install `virtualEnv`
+- Command to fire a project in virtual environment `virtualenv <projectName>`.
+  - For linux users to activate the project use the command: `source <projectName>/bin/activate`
+  - Windows users: `.\<projectName>\scripts\activate.ps1`
+- All the packages required in the project are to be installed in the virtual environment.
+- In the command shell, if a virtual environment is running then the project name can be seen in front.
+  - `<projectName> PS D: bla bla path\pythonShell`
+- To deactivate the environment, enter `deactivate`
+- To delete a virtual environment, just delete the folder.
+- `pip freeze > requirements.txt` can be used to save all the required pip modules for the project.
+- When `pip install -r .\requirements.txt` is executed it will install all the modules listed in the txt file.
+
+## Lambda functions
+
+- Instead of defining a one liner functions, lambda functions can be used to created a small function.
+
+  - syntax with example:
+
+    ```
+    def square(n):
+      return n*n
+
+    # The above function can also be written as follows:
+
+    square = lambda n : n*n
+    ```
+
+## Bin - Join
+
+- Creates a string from iterable objects.
+  - syntax:
+    ```
+    list = ["str1", "str2", "str3"]
+    combined_string = "and".join(list)
+    ## output will be str1 and str2 and str3
+    ```
+
+## Format method - strings
+
+- It is similar to `fString`
+- In previous versions of python there was no `fString` and therefore format method was used.
+  - syntax with example:
+    ```
+    name = "Phani"
+    channel = "TravelWithPhani"
+    str = "This is {} and his channel is {}".format(name, channel)
+    ```
+
+## Maps
+
+- It can take a list and map a function to the input such that an output list is created with corresponding output for every input.
+
+  - syntax with example:
+
+    ```
+    def square(n):
+      return n*n
+
+    list1 = [1,2,3,4,5]
+    list2 = list(map(square, list1))
+    # output is [1,4,9,16,25]
+    ```
+
+## Filter
+
+- It creates a list of items for which the function returns true.
+- syntax
+  ```
+  list(filter(<function>,<list>))
+  ```
+- a lambda function can also be used in the place of function.
+
+## Reduce
+
+- It has to imported from `functools`
+- It applies a rolling computation to sequential pair of elements.
+- syntax:
+  ```
+  val = reduce(<function>, <list>)
+  ```
+- It applies the function on the elements in the list and gives the final output. Example, sum of all the integers in the list.
