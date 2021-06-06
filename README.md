@@ -321,17 +321,20 @@
     - If a function is present in all the classes, i.e parent and child then the function in the child class will be executed.
     - If a function is present in the base class and derived class then the sub-derived class takes the function from the derived class.
     - If a function is present only in base class then there is no other option except using it directly.
-- `super` method allows the function to also use the function from the base class.
-    ```
-    class Base:
-      def exampleFunc(self):
-        // Body
 
-    class Derived(Base):
-      def exampleFunc(self):
-        super().exampleFunc()
-        // The above line will use the function from the base class
-    ```
+- `super` method allows the function to also use the function from the base class.
+
+  ```
+  class Base:
+    def exampleFunc(self):
+      // Body
+
+  class Derived(Base):
+    def exampleFunc(self):
+      super().exampleFunc()
+      // The above line will use the function from the base class
+  ```
+
 - `Class` method - It is related to the class and not instance. there are two ways of accessing a element of the class and updating it.
   - method 1:
   ```
@@ -359,3 +362,16 @@
     ```
 - `overloading of operators` - operators in python can be overloaded using dunder methods. It is about basically overloading or replacing the functionality of a default operator like `+` or `-` with custom defined functions as explained in the example `operatorOverloading.py`
 - In the python documentation it is given which operators can be overloaded like `__Add__` or `__Mul__` etc... For complete lists checkout the [link](https://www.python-course.eu/python3_magic_methods.php)
+
+# Advanced Python
+
+## Exception handling in python
+
+- `Try` and `except` are for handling errors and exceptions during the execution of the code.
+  - Syntax:
+    ```
+    try:
+      // Block of statements
+    except Exception as <var to store error code>
+      // Block of statements
+    ```
