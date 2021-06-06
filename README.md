@@ -97,8 +97,8 @@
     ```
 - Empty set:
   ```
-    a = {} // This syntax will create an empty dictionary and not an empty set.
-    b = set() // This is correct
+    a = {} # This syntax will create an empty dictionary and not an empty set.
+    b = set() # This is correct
   ```
 - Properties:
   - Unordered
@@ -120,20 +120,20 @@
 - `if else if ladder`
   ```
     if (condition):
-      // code
+      # code
     elif (condition):
-      // code
+      # code
     else:
-      / /code
+      # code
   ```
 - `multiple if conditions`
   ```
     if (condition):
-      // code
+      # code
     if (condition):
-      // code
+      # code
     else:
-      / /code
+      # code
   ```
 
 ## Loops
@@ -142,32 +142,32 @@
 - `while` - The block executes until the condition is true.
   ```
     while (condition):
-      // statements
+      # statements
   ```
 - `for` - Iterates through a sequence list
   ```
     for item in list:
-      // statements
+      # statements
   ```
   - `range` - `for(itrStartVal, itrEndVal, itrStepVal)`
   ```
     for i in range(8):
-      // iterates until 7
+      # iterates until 7
   ```
   ```
     for i in range(2,8):
-      // starts from 2 and iterates until 7
+      # starts from 2 and iterates until 7
   ```
   ```
     for i in range(2,8,2):
-      // starts from 2 and iterates until 7 with a step of 2
+      # starts from 2 and iterates until 7 with a step of 2
   ```
   - `else`
   ```
     for i in range(n):
-      // iterates until n
+      # iterates until n
     else:
-      // do something
+      # do something
   ```
   - `break` - it breaks and ends the loop
 
@@ -176,15 +176,15 @@
 - syntax
   ```
     def <funcName>:
-      // Do anything
-      // Return
+      # Do anything
+      # Return
   ```
 - default arguments
   ```
     def funcName(name="stranger"):
-      // default value is used as `stranger` if no value is specified in name
-      // Do anything
-      // Return
+      # default value is used as `stranger` if no value is specified in name
+      # Do anything
+      # Return
   ```
 
 ## Files
@@ -232,9 +232,9 @@
       company = "Avion"
 
     employee phani
-    print(phani.company) // will print Avion
+    print(phani.company) # will print Avion
     employee.company = "AvionReturns"
-    print(phani.company) // will print AvionReturns as the class attribute value was changed.
+    print(phani.company) # will print AvionReturns as the class attribute value was changed.
   ```
 
 - `Instance attributes` are the elements of the class for a particular object.
@@ -255,7 +255,7 @@
   - The parameter `self` can be given any identifier name. It does not have to be `self` only.
   ```
   def __init__(self):
-  // is equal to
+  # is equal to
   def __init__(anyVal)
   ```
   - If there are positional arguments in the constructor then they have to be given during the initialization of an object.
@@ -285,36 +285,36 @@
 
   ```
   class Base:
-    //Body
+    #Body
 
   class Derived(Base):
-    // Body
+    # Body
   ```
 
   - Multiple inheritance - Two parent classes and single child
 
   ```
   class Base1:
-    //Body
+    #Body
 
   class Base2:
-    //Body
+    #Body
 
   class Derived(Base1, Base2):
-    //
+    #
   ```
 
   - Multilevel inheritance - It is a cascading inheritance.
 
   ```
   class Base:
-    // Body
+    # Body
 
   class Derived(Base):
-    // Body
+    # Body
 
   class SubDerived(Derived):
-    // Body
+    # Body
   ```
 
   - Precedence of execution of functions depends on the availability.
@@ -327,12 +327,12 @@
   ```
   class Base:
     def exampleFunc(self):
-      // Body
+      # Body
 
   class Derived(Base):
     def exampleFunc(self):
       super().exampleFunc()
-      // The above line will use the function from the base class
+      # The above line will use the function from the base class
   ```
 
 - `Class` method - It is related to the class and not instance. there are two ways of accessing a element of the class and updating it.
@@ -361,17 +361,29 @@
       self.<var1> = val - var2
     ```
 - `overloading of operators` - operators in python can be overloaded using dunder methods. It is about basically overloading or replacing the functionality of a default operator like `+` or `-` with custom defined functions as explained in the example `operatorOverloading.py`
-- In the python documentation it is given which operators can be overloaded like `__Add__` or `__Mul__` etc... For complete lists checkout the [link](https://www.python-course.eu/python3_magic_methods.php)
+- In the python documentation it is given which operators can be overloaded like `__Add__` or `__Mul__` etc... For complete lists checkout the [link](https:#www.python-course.eu/python3_magic_methods.php)
 
 # Advanced Python
 
 ## Exception handling in python
 
-- `Try` and `except` are for handling errors and exceptions during the execution of the code.
+- `Try` and `except` are for handling errors and exceptions during the execution of the code. `Else` is also available to handle the case when `try` was successful
   - Syntax:
     ```
     try:
-      // Block of statements
+      # Regular block of statements
     except Exception as <var to store error code>
-      // Block of statements
+      # Block of statements to be executed when there is an error
+    else:
+      # statements to execute when `try` was executed successfully
+    ```
+  - There are different exception codes to handle errors, example `zeroDivisionError`, `TypeError` etc..
+    - syntax:
+    ```
+    try:
+      # Block of statements
+    except zeroDivisionError:
+      # Block of statements
+    except TypeError:
+      # Block of statements
     ```

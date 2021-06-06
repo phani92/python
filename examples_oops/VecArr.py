@@ -14,19 +14,25 @@ class Vector:
         return str1[:-1]
 
     def __add__(self, vec2):
-        sum = []
-        for i in range(len(self.vec)):
-            sum.append(self.vec[i] + vec2.vec[i])
-        return Vector(sum)
+        try:
+            sum = []
+            for i in range(len(self.vec)):
+                sum.append(self.vec[i] + vec2.vec[i])
+            return Vector(sum)
+        except IndexError as error:
+            print("Arrays are of unequal size")
 
     def __mul__(self, vec2):
-        mul = 0
-        for i in range(len(self.vec)):
-            mul += self.vec[i] * vec2.vec[i]
-        return mul
+        try:
+            mul = 0
+            for i in range(len(self.vec)):
+                mul += self.vec[i] * vec2.vec[i]
+            return mul
+        except IndexError as error:
+            print("Arrays are of unequal size")
 
 
-v1 = Vector([5, 6, 7])
+v1 = Vector([5, 6, 7, 8])
 print(v1)
 v2 = Vector([5, 6, 7])
 print(v2)
