@@ -4,6 +4,7 @@
 - Personal notes.
 - If anything is useful please feel free to use them.
 - Everything in python is object
+- Special shout out to [Harry](https://www.codewithharry.com/) for the amazing course and practice problems.
 
 ## Variables and data types
 
