@@ -365,6 +365,54 @@
 
 # Advanced Python
 
+## Generic
+
+### Main
+
+- When files need to be imported and we want only a section of code from it to be executed then the program can be isolated using `__name__ == __main__`. It also acts as an entry point for the module similar to java or c++.
+  - syntax and example:
+    ```
+    program_1:
+      def egFunc:
+        # Do something
+
+      if __name__ == "__main__":
+        print("this line will print only in program_1")
+
+    program_2:
+      import program_1
+
+      program_1.egFunc()
+      # The print statement will not be printed as it is inside __main__ condition.
+    ```
+
+### Global
+
+- Accesses the global variables inside functions etc.. They can also be used to modify the variable outside of the current scope.
+  - syntax
+    ```
+    global <var>
+    ```
+
+### Enumerate function
+
+- It can be used in a for loop to enumerate a list. It basically also provides the index of the item in the list.
+  - Syntax
+    ```
+    for index, item in enumerate(list):
+      # index will return the index of the item in the list
+    ```
+
+### List comprehensions
+
+- A line of code can be included in the list creation var `[]` which will consider the condition before populating the list.
+  - syntax with example
+    ```
+    list1 = [3,45,6,7,8,9,10]
+    # populates list with even numbers in list2 - comprehensive list
+    list2 = [i for i in list1 if i%2==0]
+    ```
+
 ## Exception handling in python
 
 - `Try` and `except` are for handling errors and exceptions during the execution of the code. `Else` is also available to handle the case when `try` was successful
@@ -397,23 +445,4 @@
     finally:
       # Block of statements to finish
       # Important is it will be executed even if the program is exited in any of the above cases
-    ```
-
-## Main
-
-- When files need to be imported and we want only a section of code from it to be executed then the program can be isolated using `__name__ == __main__`. It also acts as an entry point for the module similar to java or c++.
-  - syntax and example:
-    ```
-    program_1:
-      def egFunc:
-        # Do something
-
-      if __name__ == "__main__":
-        print("this line will print only in program_1")
-
-    program_2:
-      import program_1
-
-      program_1.egFunc()
-      # The print statement will not be printed as it is inside __main__ condition.
     ```
