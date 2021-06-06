@@ -45,4 +45,4 @@ while(True):
             print("Press 'q' to quit the game")
 
     except Exception as error:
-        print("Please enter a number, there is an error {error}")
+        print(f"Please enter a number, there is an error {error}")

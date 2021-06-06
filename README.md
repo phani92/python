@@ -387,3 +387,33 @@
     except TypeError:
       # Block of statements
     ```
+  - `Try` with `finally` - It executes a piece of code when there is an exception and we need to handle a use-case such that a section of code is executed.
+    - syntax:
+    ```
+    try:
+      # Block of statements to execute
+    except zeroDivisionError:
+      # Block of statements to handle error
+    finally:
+      # Block of statements to finish
+      # Important is it will be executed even if the program is exited in any of the above cases
+    ```
+
+## Main
+
+- When files need to be imported and we want only a section of code from it to be executed then the program can be isolated using `__name__ == __main__`. It also acts as an entry point for the module similar to java or c++.
+  - syntax and example:
+    ```
+    program_1:
+      def egFunc:
+        # Do something
+
+      if __name__ == "__main__":
+        print("this line will print only in program_1")
+
+    program_2:
+      import program_1
+
+      program_1.egFunc()
+      # The print statement will not be printed as it is inside __main__ condition.
+    ```
