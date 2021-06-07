@@ -6,6 +6,7 @@
 - Everything in python is object.
 - `pip freeze > requirements.txt` creates a list of installed modules and copies the text into the text file.
 - Special shout out to [Harry](https://www.codewithharry.com/) for the amazing course and practice problems.
+- Check out `Projects` folder for example projects based purely on python.
 
 ## Variables and data types
 
