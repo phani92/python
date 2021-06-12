@@ -9,7 +9,8 @@ studentObjList = []
 libObjList = []
 mainMenu = ['<1> Add student',
             '<2> Show list of students',
-            '<3> Show list of departments']
+            '<3> Show list of departments',
+            '<4> Exit']
 
 # Classes
 
@@ -49,20 +50,28 @@ def reqHandle(inp):
                     <2> Request Book
                     <3> Add/Return Book
                     <4> Back\n'''
+    library = libObjList[inp].listOfBooks
 
     while(True):
         choice = int(input(reqMenuStr))
 
         if choice == 1:
             print("List of available books are:")
-            for index, item in enumerate(libObjList[inp].listOfBooks):
+            for index, item in enumerate(library):
                 print(f"  <{index+1}> {item}")
 
         elif choice == 2:
-            pass
+            book = input("Enter the book you want to borrow.\n")
+            if book in library:
+                library.remove(book)
+                print(f"You have been successfully issued the book, {book}.")
+            else:
+                print(f"This {book} is not available.")
 
         elif choice == 3:
-            pass
+            book = input("Enter the book you want to return.\n")
+            library.add(book)
+            print(f"Thank you for returning the book, {book}.")
 
         elif choice == 4:
             break
@@ -133,6 +142,10 @@ if __name__ == "__main__":
 
             elif(choice == 3):
                 handleDept()
+
+            elif(choice == 4):
+                print("Thank you for using the Central Library.")
+                exit()
 
             else:
                 print("Enter a valid choice")
