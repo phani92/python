@@ -8,4 +8,5 @@
 # Flappy Bird Game
 - Download `game_flappyBird` folder and launch `flappyGame.py` by running it in a terminal.
 - Preview:
-  ![gamePlay](/gameplay/gameplay.wmv)
+
+  ![gamePlay](/gameplay/gameplay.mp4)
