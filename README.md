@@ -9,4 +9,4 @@
 - Download `game_flappyBird` folder and launch `flappyGame.py` by running it in a terminal.
 - Preview:
 
-  ![gamePlay](game_flappyBird/gameplay/gameplay.gif)
+  ![gamePlay](https://github.com/phani92/python/blob/master/game_flappyBird/gameplay/gamePlay.gif)
