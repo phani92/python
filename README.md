@@ -9,4 +9,4 @@
 - Download `game_flappyBird` folder and launch `flappyGame.py` by running it in a terminal.
 - Preview:
 
-  ![gamePlay](/gameplay/gameplay.mp4)
+  ![gamePlay](game_flappyBird/gameplay/gameplay.mp4)
