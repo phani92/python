@@ -18,6 +18,7 @@ GAME_SOUNDS = {}
 PLAYER = "sprites/bird.png"
 BACKGROUND = "sprites/background.png"
 PIPE = 'sprites/pipe.png'
+GAMEOVER = 'sprites/gameOver.png'
 
 
 def getRandomPipe():
@@ -194,17 +195,17 @@ def mainGame():
 
 def displayScore(score):
     FPSCLOCK = pygame.time.Clock()
-    SCREEN.blit(GAME_SPRITES['background'], (0, 0))
+    SCREEN.blit(GAME_SPRITES['gameOver'], (0, 0))
     myDigits = [int(x) for x in list(str(score))]
     width = 0
 
     for digit in myDigits:
         width += GAME_SPRITES['numbers'][digit].get_width()
-        xOffset = (SCREENWIDTH - width)/2
+        xOffset = (SCREENWIDTH - width)/2 + 60
 
     for digit in myDigits:
         SCREEN.blit(GAME_SPRITES['numbers'][digit],
-                    (xOffset, SCREENHEIGHT*0.12))
+                    (xOffset, SCREENHEIGHT*0.40))
         xOffset += GAME_SPRITES['numbers'][digit].get_width()
 
     pygame.display.update()
@@ -251,6 +252,7 @@ if __name__ == "__main__":
 
     GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
     GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
+    GAME_SPRITES['gameOver'] = pygame.image.load(GAMEOVER).convert()
 
     # Sounds
     GAME_SOUNDS['die'] = pygame.mixer.Sound('audio/die.wav')
